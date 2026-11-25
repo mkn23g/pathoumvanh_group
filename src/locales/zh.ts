@@ -12,7 +12,7 @@ const zh = {
     titleLine2Prefix: '共创',
     titleAccent: '共享价值。',
     tagline:
-      'Pathoumvanh Group 是一家控股集团，在卓越运营、战略资本与规范治理的共同基石上，统筹旗下六家子公司协同发展。',
+      'Pathoumvanh Group 是一家控股集团，在卓越运营、战略资本与规范治理的共同基石上，统筹旗下四家子公司协同发展。',
     ctaPrimary: '申请合作',
     ctaSecondary: '探索子公司',
   },
@@ -30,11 +30,16 @@ const zh = {
   },
   subsidiaries: {
     label: '旗下子公司',
-    title: '六大业务，同一愿景',
-    subtitle: '各子公司在各自市场独立运营，同时依托集团的共享资源、统一标准与战略支持稳健前行。',
+    title: '四大业务，同一愿景',
+    subtitle: '各子公司在各自市场独立运营，同时依托集团的共享资源与战略支持稳健前行。点击任意公司即可访问官网或查看详情。',
     descPlaceholder: '[请填写已核实的子公司简介 — 核心业务与目标市场]',
-    unnamed: '[请填写子公司名称]',
-    learnMore: '了解更多',
+    nanacafeDesc:
+      'NANA CAFÉ Coffee & Space — 位于万象 Ban Haysoke 的精品咖啡空间，严选百松 100% 老挝阿拉比卡咖啡豆，提供慢吧手冲与全天候餐食。',
+    visitSite: '访问网站',
+    viewDetails: '查看详情',
+    inquireCta: '咨询该公司合作',
+    closeModal: '关闭',
+    modalComingSoon: '该子公司独立网站正在建设中，欢迎通过 Pathoumvanh Group 联系咨询。',
   },
   governance: {
     label: '共享优势与公司治理',

@@ -49,16 +49,20 @@ export function About() {
 
         <div className="metrics-row reveal reveal-d2">
           {[
-            { value: '[X]', label: t('about.subsidiariesLabel') },
-            { value: '[X]', label: t('about.metricPlaceholder') },
-            { value: '[X]', label: t('about.metricPlaceholder') },
-            { value: '[X]', label: t('about.metricPlaceholder') },
+            { value: '4', label: t('about.subsidiariesLabel'), isReal: true },
+            { value: '[X]', label: t('about.metricPlaceholder'), isReal: false },
+            { value: '[X]', label: t('about.metricPlaceholder'), isReal: false },
+            { value: '[X]', label: t('about.metricPlaceholder'), isReal: false },
           ].map((metric, i) => (
             <div className="metric-card" key={i}>
               <div className="metric-value">
-                <span className="placeholder" style={{ background: 'none', border: 'none' }}>
-                  {metric.value}
-                </span>
+                {metric.isReal ? (
+                  metric.value
+                ) : (
+                  <span className="placeholder" style={{ background: 'none', border: 'none' }}>
+                    {metric.value}
+                  </span>
+                )}
               </div>
               <div className="metric-label">{metric.label}</div>
             </div>

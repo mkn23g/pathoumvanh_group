@@ -15,7 +15,7 @@ export const languages: { code: SupportedLang; label: string; native: string }[]
 ]
 
 const saved = (typeof window !== 'undefined' && localStorage.getItem('pg_lang')) as SupportedLang | null
-const initialLang: SupportedLang = saved && ['en', 'lo', 'th', 'zh'].includes(saved) ? saved : 'en'
+const initialLang: SupportedLang = saved && ['en', 'lo', 'th', 'zh'].includes(saved) ? saved : 'lo'
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -25,7 +25,7 @@ i18n.use(initReactI18next).init({
     zh: { translation: zh },
   },
   lng: initialLang,
-  fallbackLng: 'en',
+  fallbackLng: 'lo',
   interpolation: { escapeValue: false },
 })
 

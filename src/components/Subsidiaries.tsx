@@ -1,9 +1,22 @@
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const subsidiaries = [
+interface SubsidiaryItem {
+  id: string
+  name: string
+  url?: string
+  visual: string
+  isNanacafe?: boolean
+  icon: React.ReactNode
+}
+
+const subsidiaries: SubsidiaryItem[] = [
   {
+    id: 'nanacafe',
     name: 'Nanacafe',
+    url: 'https://nanacafe.ninmkn9801.workers.dev',
     visual: 'card-v1',
+    isNanacafe: true,
     icon: (
       <svg width="90" height="90" viewBox="0 0 90 90" aria-hidden="true">
         <circle cx="45" cy="45" r="36" fill="rgba(0,0,0,0.06)" />
@@ -14,6 +27,7 @@ const subsidiaries = [
     ),
   },
   {
+    id: 'nakhone',
     name: 'Nakhone',
     visual: 'card-v2',
     icon: (
@@ -29,6 +43,7 @@ const subsidiaries = [
     ),
   },
   {
+    id: 'aqualao',
     name: 'Aqualao',
     visual: 'card-v3',
     icon: (
@@ -41,6 +56,7 @@ const subsidiaries = [
     ),
   },
   {
+    id: 'phathoumvanhtrading',
     name: 'Phathoumvanhtrading',
     visual: 'card-v4',
     icon: (
@@ -52,33 +68,20 @@ const subsidiaries = [
       </svg>
     ),
   },
-  {
-    name: null,
-    visual: 'card-v5',
-    icon: (
-      <svg width="90" height="90" viewBox="0 0 90 90" aria-hidden="true">
-        <circle cx="45" cy="45" r="36" fill="rgba(0,0,0,0.06)" />
-        <rect x="30" y="30" width="30" height="30" rx="15" fill="none" stroke="#4338ca" strokeWidth="2.2" />
-        <line x1="45" y1="37" x2="45" y2="53" stroke="#4338ca" strokeWidth="2.2" strokeLinecap="round" />
-        <line x1="37" y1="45" x2="53" y2="45" stroke="#4338ca" strokeWidth="2.2" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    name: null,
-    visual: 'card-v6',
-    icon: (
-      <svg width="90" height="90" viewBox="0 0 90 90" aria-hidden="true">
-        <circle cx="45" cy="45" r="36" fill="rgba(0,0,0,0.06)" />
-        <polygon points="45,22 62,40 54,40 62,60 28,38 38,38"
-          fill="none" stroke="#b45309" strokeWidth="2.2" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
 ]
 
 export function Subsidiaries() {
   const { t } = useTranslation()
+  const [selected, setSelected] = useState<SubsidiaryItem | null>(null)
+
+  useEffect(() => {
+    if (!selected) return
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') setSelected(null)
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [selected])
 
   return (
     <section id="subsidiaries" className="section">
@@ -89,26 +92,107 @@ export function Subsidiaries() {
           <p className="section-subtitle">{t('subsidiaries.subtitle')}</p>
         </div>
 
-        <div className="card-grid">
+        <div className="card-grid card-grid-4">
           {subsidiaries.map((sub, i) => {
-            const displayName = sub.name ?? t('subsidiaries.unnamed')
+            const desc = sub.isNanacafe ? (
+              t('subsidiaries.nanacafeDesc')
+            ) : (
+              <span className="placeholder">{t('subsidiaries.descPlaceholder')}</span>
+            )
+
+            if (sub.url) {
+              return (
+                <a
+                  key={sub.id}
+                  href={sub.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`card card-clickable reveal reveal-d${i + 1}`}
+                  aria-label={`${sub.name} — ${t('subsidiaries.visitSite')}`}
+                >
+                  <div className={`card-visual ${sub.visual}`}>
+                    {sub.icon}
+                    <span className="card-live-badge">Live ↗</span>
+                  </div>
+                  <div className="card-body">
+                    <h3>{sub.name}</h3>
+                    <p>{desc}</p>
+                    <span className="card-link">
+                      {t('subsidiaries.visitSite')} <span aria-hidden="true">↗</span>
+                    </span>
+                  </div>
+                </a>
+              )
+            }
+
             return (
-              <article className={`card reveal reveal-d${Math.min(i + 1, 5)}`} key={i}>
+              <button
+                key={sub.id}
+                type="button"
+                className={`card card-clickable card-button reveal reveal-d${i + 1}`}
+                onClick={() => setSelected(sub)}
+                aria-label={`${sub.name} — ${t('subsidiaries.viewDetails')}`}
+              >
                 <div className={`card-visual ${sub.visual}`}>{sub.icon}</div>
                 <div className="card-body">
-                  <h3>{displayName}</h3>
-                  <p>
-                    <span className="placeholder">{t('subsidiaries.descPlaceholder')}</span>
-                  </p>
-                  <a href="#contact" className="card-link" aria-label={`${t('subsidiaries.learnMore')} — ${displayName}`}>
-                    {t('subsidiaries.learnMore')} <span aria-hidden="true">→</span>
-                  </a>
+                  <h3>{sub.name}</h3>
+                  <p>{desc}</p>
+                  <span className="card-link">
+                    {t('subsidiaries.viewDetails')} <span aria-hidden="true">→</span>
+                  </span>
                 </div>
-              </article>
+              </button>
             )
           })}
         </div>
       </div>
+
+      {selected && (
+        <div
+          className="modal-backdrop"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="sub-modal-title"
+          onClick={() => setSelected(null)}
+        >
+          <div className="modal-dialog" onClick={e => e.stopPropagation()}>
+            <div className={`modal-header ${selected.visual}`}>
+              {selected.icon}
+              <button
+                type="button"
+                className="modal-close"
+                aria-label={t('subsidiaries.closeModal')}
+                onClick={() => setSelected(null)}
+              >
+                ✕
+              </button>
+            </div>
+            <div className="modal-body">
+              <h3 id="sub-modal-title">{selected.name}</h3>
+              <p className="modal-desc">
+                <span className="placeholder">{t('subsidiaries.descPlaceholder')}</span>
+              </p>
+              <p className="modal-note">{t('subsidiaries.modalComingSoon')}</p>
+              <div className="modal-actions">
+                <a
+                  href="#contact"
+                  className="btn btn-primary"
+                  onClick={() => setSelected(null)}
+                >
+                  {t('subsidiaries.inquireCta')}
+                </a>
+                <button
+                  type="button"
+                  className="btn btn-outline"
+                  onClick={() => setSelected(null)}
+                >
+                  {t('subsidiaries.closeModal')}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

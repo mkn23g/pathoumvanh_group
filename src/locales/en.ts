@@ -12,7 +12,7 @@ const en = {
     titleLine2Prefix: 'Creating ',
     titleAccent: 'Shared Value.',
     tagline:
-      'Pathoumvanh Group is a holding company that unites six distinct subsidiaries under a shared foundation of operational excellence, strategic capital, and principled governance.',
+      'Pathoumvanh Group is a holding company that unites four distinct subsidiaries under a shared foundation of operational excellence, strategic capital, and principled governance.',
     ctaPrimary: 'Request a Partnership',
     ctaSecondary: 'Explore Subsidiaries',
   },
@@ -30,12 +30,17 @@ const en = {
   },
   subsidiaries: {
     label: 'Our Subsidiaries',
-    title: 'Six Businesses, One Shared Vision',
+    title: 'Four Businesses, One Shared Vision',
     subtitle:
-      "Each subsidiary operates independently within its market, backed by the group's shared resources, standards, and strategic support.",
+      "Each subsidiary operates independently within its market, backed by the group's shared resources, standards, and strategic support. Click any company below to visit its website or view details.",
     descPlaceholder: '[Insert verified subsidiary description — core offering and target market.]',
-    unnamed: '[Insert Subsidiary Name]',
-    learnMore: 'Learn more',
+    nanacafeDesc:
+      'NANA CAFÉ Coffee & Space — Specialty coffee house in Ban Haysoke, Vientiane serving 100% Lao Premium Arabica from Paksong, Slow Bar brews, and all-day dining.',
+    visitSite: 'Visit Website',
+    viewDetails: 'View Details',
+    inquireCta: 'Inquire About This Company',
+    closeModal: 'Close',
+    modalComingSoon: 'Dedicated website coming soon. Contact Pathoumvanh Group for business inquiries.',
   },
   governance: {
     label: 'Shared Strengths & Governance',
