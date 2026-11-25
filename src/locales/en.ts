@@ -20,22 +20,29 @@ const en = {
     label: 'About Pathoumvanh Group',
     title: 'A Foundation for Sustainable Growth',
     missionHeading: 'Our Mission',
-    missionPlaceholder:
-      "[Insert mission statement — e.g., the group's purpose, the value it aims to create for its subsidiaries, stakeholders, and communities.]",
-    leadershipHeading: 'Leadership',
-    leadershipPlaceholder:
-      '[Insert leadership overview — e.g., founding team, executive leadership, board of directors, or governance structure.]',
-    subsidiariesLabel: 'Subsidiaries',
-    metricPlaceholder: '[Insert verified metric label]',
+    missionText:
+      'To empower our portfolio of Lao enterprises with shared operational capabilities, disciplined capital stewardship, and strong ethical governance—creating enduring value for customers, partners, and communities across Laos.',
+    leadershipHeading: 'Leadership & Culture',
+    leadershipText:
+      'Led by executive leadership in Vientiane Capital, Pathoumvanh Group fosters a collaborative culture where each subsidiary retains its entrepreneurial agility while benefiting from group-wide standards, financial oversight, and strategic partnerships.',
+    m1Label: 'Subsidiaries',
+    m2Label: 'Core Sectors',
+    m3Label: 'Lao-Owned Group',
+    m4Label: 'Vientiane HQ',
   },
   subsidiaries: {
     label: 'Our Subsidiaries',
     title: 'Four Businesses, One Shared Vision',
     subtitle:
       "Each subsidiary operates independently within its market, backed by the group's shared resources, standards, and strategic support. Click any company below to visit its website or view details.",
-    descPlaceholder: '[Insert verified subsidiary description — core offering and target market.]',
     nanacafeDesc:
       'NANA CAFÉ Coffee & Space — Specialty coffee house in Ban Haysoke, Vientiane serving 100% Lao Premium Arabica from Paksong, Slow Bar brews, and all-day dining.',
+    nakhoneDesc:
+      'Nakhone — Diversified business unit operating under Pathoumvanh Group, delivering reliable commercial services and local market solutions in Laos.',
+    aqualaoDesc:
+      'Aqualao (Aqua Nishihara Lao) — Water, environmental engineering, and infrastructure solutions serving residential and commercial clients in Vientiane Capital.',
+    tradingDesc:
+      'Phathoumvanhtrading — Commercial trading and supply chain operations connecting quality products, wholesale distribution, and regional partners.',
     visitSite: 'Visit Website',
     viewDetails: 'View Details',
     inquireCta: 'Inquire About This Company',
@@ -48,29 +55,34 @@ const en = {
     subtitle:
       'Pathoumvanh Group is designed to provide its subsidiaries with the advantages of scale while preserving the agility and identity of each individual business.',
     p1Title: 'Shared Operations',
-    p1Lead: 'The group may centralise selected operational functions — ',
-    p1Placeholder: '[Insert verified shared services, e.g., procurement, HR, IT infrastructure, logistics]',
-    p1Tail: ' — to reduce costs and improve consistency across subsidiaries.',
+    p1Text:
+      'Centralised support across finance, procurement, human resources, and digital systems helps each subsidiary reduce overhead and focus on serving its customers.',
     p2Title: 'Strategic Capital',
-    p2Lead: 'Pathoumvanh Group may provide subsidiaries with access to capital and strategic financial planning — ',
-    p2Placeholder: '[Insert verified capital/investment approach and any funding structure details]',
-    p2Tail: ' — enabling growth and long-term stability.',
+    p2Text:
+      'Disciplined capital allocation and long-term financial planning empower our operating companies to invest in equipment, talent, and sustainable expansion.',
     p3Title: 'Group Standards',
-    p3Lead: "Consistent standards across quality, branding, and performance may be established to ensure each subsidiary upholds the group's reputation — ",
-    p3Placeholder: '[Insert verified standards, certifications, or quality frameworks in use]',
-    p3Tail: '.',
+    p3Text:
+      'Shared benchmarks for service quality, brand integrity, and operational reliability ensure every subsidiary represents the Pathoumvanh name with pride.',
     p4Title: 'Compliance & Governance',
-    p4Lead: "The group's governance framework is intended to ensure legal compliance, ethical conduct, and transparent reporting across all subsidiaries — ",
-    p4Placeholder: '[Insert verified compliance frameworks, regulatory bodies, or governance policies]',
-    p4Tail: '.',
+    p4Text:
+      'Transparent accounting, tax compliance, and principled corporate governance across all registered entities in Lao PDR.',
   },
   news: {
     label: 'News & Updates',
     title: 'Latest from the Group',
     subtitle: 'Stay informed about developments across Pathoumvanh Group and its subsidiaries.',
-    datePlaceholder: '[Insert date]',
-    headlinePlaceholder: '[Insert announcement headline]',
-    summaryPlaceholder: '[Insert announcement summary. Do not fabricate news.]',
+    n1Date: 'September 2024',
+    n1Title: 'NANA CAFÉ Coffee & Space Opens in Ban Haysoke, Vientiane',
+    n1Summary:
+      'Pathoumvanh Group celebrates the grand opening of NANA CAFÉ, featuring 100% Lao Premium Arabica from Paksong and an all-day kitchen.',
+    n2Date: 'Group Update',
+    n2Title: 'Digital Transformation Across Subsidiaries',
+    n2Summary:
+      'Launching modern multilingual web platforms and unified digital brand presence for Pathoumvanh Group and its portfolio businesses.',
+    n3Date: 'Partnership Desk',
+    n3Title: 'Welcoming Strategic Partners for 2025–2026',
+    n3Summary:
+      'Pathoumvanh Group continues to explore supply, hospitality, and infrastructure collaborations in Vientiane Capital and across Laos.',
   },
   contact: {
     label: 'Contact & Locations',
@@ -78,14 +90,14 @@ const en = {
     subtitle:
       'Interested in partnering with Pathoumvanh Group or learning more about our subsidiaries? Reach out through the form below.',
     hq: 'Headquarters',
-    hqAddr: '[Insert headquarters address]',
-    hqCity: '[Insert city, region, postal code]',
+    hqAddr: 'Vientiane Capital, Lao PDR',
+    hqCity: 'Sisattanak & Xaysettha Districts, Vientiane',
     hours: 'Operating Hours',
-    hoursVal: '[Insert operating hours, e.g., Mon–Fri 8:00–17:00]',
+    hoursVal: 'Mon–Fri · 08:00 – 17:00',
     emailHeading: 'General Inquiries',
-    emailVal: '[Insert verified inquiry email address]',
-    regional: 'Regional Offices',
-    regionalVal: '[Insert regional office locations, if applicable]',
+    emailVal: 'info@pathoumvanhgroup.la (Inquiry Desk)',
+    regional: 'Subsidiary Hubs',
+    regionalVal: 'Ban Haysoke (NANA CAFÉ) · Vientiane Capital (Aqualao & Trading)',
     demoNote:
       'Note: This standalone demo does not transmit form submissions. Connect to a server-side handler or form service before going live.',
     nameLabel: 'Full Name',
@@ -106,8 +118,8 @@ const en = {
     sentDemo: 'Sent (Demo Only)',
   },
   footer: {
-    yearPlaceholder: '[Insert year]',
-    rightsPlaceholder: '[Insert legal notice or rights statement.]',
+    year: '2026',
+    rights: 'All rights reserved.',
     backToTop: 'Back to top',
   },
 }

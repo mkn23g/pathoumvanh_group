@@ -42,25 +42,19 @@ export function Contact() {
           <div className="contact-info reveal reveal-d1">
             <h3>{t('contact.hq')}</h3>
             <address>
-              <span className="placeholder">{t('contact.hqAddr')}</span>
+              {t('contact.hqAddr')}
               <br />
-              <span className="placeholder">{t('contact.hqCity')}</span>
+              {t('contact.hqCity')}
             </address>
 
             <h3>{t('contact.hours')}</h3>
-            <p>
-              <span className="placeholder">{t('contact.hoursVal')}</span>
-            </p>
+            <p>{t('contact.hoursVal')}</p>
 
             <h3>{t('contact.emailHeading')}</h3>
-            <p>
-              <span className="placeholder">{t('contact.emailVal')}</span>
-            </p>
+            <p>{t('contact.emailVal')}</p>
 
             <h3>{t('contact.regional')}</h3>
-            <p>
-              <span className="placeholder">{t('contact.regionalVal')}</span>
-            </p>
+            <p>{t('contact.regionalVal')}</p>
           </div>
 
           <div className="reveal reveal-d2">

@@ -4,9 +4,10 @@ import { useTranslation } from 'react-i18next'
 interface SubsidiaryItem {
   id: string
   name: string
+  descKey: string
+  contactInfo?: string
   url?: string
   visual: string
-  isNanacafe?: boolean
   icon: React.ReactNode
 }
 
@@ -14,9 +15,9 @@ const subsidiaries: SubsidiaryItem[] = [
   {
     id: 'nanacafe',
     name: 'Nanacafe',
+    descKey: 'subsidiaries.nanacafeDesc',
     url: 'https://nanacafe.ninmkn9801.workers.dev',
     visual: 'card-v1',
-    isNanacafe: true,
     icon: (
       <svg width="90" height="90" viewBox="0 0 90 90" aria-hidden="true">
         <circle cx="45" cy="45" r="36" fill="rgba(0,0,0,0.06)" />
@@ -29,6 +30,7 @@ const subsidiaries: SubsidiaryItem[] = [
   {
     id: 'nakhone',
     name: 'Nakhone',
+    descKey: 'subsidiaries.nakhoneDesc',
     visual: 'card-v2',
     icon: (
       <svg width="90" height="90" viewBox="0 0 90 90" aria-hidden="true">
@@ -45,6 +47,8 @@ const subsidiaries: SubsidiaryItem[] = [
   {
     id: 'aqualao',
     name: 'Aqualao',
+    descKey: 'subsidiaries.aqualaoDesc',
+    contactInfo: 'Tel: 020 5411 5494, 021 316 075 · Email: headoffice.aqualao@gmail.com',
     visual: 'card-v3',
     icon: (
       <svg width="90" height="90" viewBox="0 0 90 90" aria-hidden="true">
@@ -58,6 +62,7 @@ const subsidiaries: SubsidiaryItem[] = [
   {
     id: 'phathoumvanhtrading',
     name: 'Phathoumvanhtrading',
+    descKey: 'subsidiaries.tradingDesc',
     visual: 'card-v4',
     icon: (
       <svg width="90" height="90" viewBox="0 0 90 90" aria-hidden="true">
@@ -94,11 +99,7 @@ export function Subsidiaries() {
 
         <div className="card-grid card-grid-4">
           {subsidiaries.map((sub, i) => {
-            const desc = sub.isNanacafe ? (
-              t('subsidiaries.nanacafeDesc')
-            ) : (
-              <span className="placeholder">{t('subsidiaries.descPlaceholder')}</span>
-            )
+            const desc = t(sub.descKey)
 
             if (sub.url) {
               return (
@@ -169,9 +170,12 @@ export function Subsidiaries() {
             </div>
             <div className="modal-body">
               <h3 id="sub-modal-title">{selected.name}</h3>
-              <p className="modal-desc">
-                <span className="placeholder">{t('subsidiaries.descPlaceholder')}</span>
-              </p>
+              <p className="modal-desc">{t(selected.descKey)}</p>
+              {selected.contactInfo && (
+                <p className="modal-note" style={{ color: 'var(--text-dark)', fontWeight: 600 }}>
+                  {selected.contactInfo}
+                </p>
+              )}
               <p className="modal-note">{t('subsidiaries.modalComingSoon')}</p>
               <div className="modal-actions">
                 <a

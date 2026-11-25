@@ -7,8 +7,7 @@ export function Footer() {
     <footer className="footer" role="contentinfo">
       <div className="container">
         <p>
-          &copy; <span className="placeholder">{t('footer.yearPlaceholder')}</span> Pathoumvanh Group.{' '}
-          <span className="placeholder">{t('footer.rightsPlaceholder')}</span>
+          &copy; {t('footer.year')} Pathoumvanh Group. {t('footer.rights')}
         </p>
         <p style={{ marginTop: '0.5rem' }}>
           <a href="#hero">{t('footer.backToTop')}</a>

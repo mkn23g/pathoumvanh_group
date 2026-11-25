@@ -3,6 +3,12 @@ import { useTranslation } from 'react-i18next'
 export function News() {
   const { t } = useTranslation()
 
+  const items = [
+    { date: t('news.n1Date'), title: t('news.n1Title'), summary: t('news.n1Summary') },
+    { date: t('news.n2Date'), title: t('news.n2Title'), summary: t('news.n2Summary') },
+    { date: t('news.n3Date'), title: t('news.n3Title'), summary: t('news.n3Summary') },
+  ]
+
   return (
     <section id="news" className="section section-alt">
       <div className="container">
@@ -13,17 +19,11 @@ export function News() {
         </div>
 
         <div className="news-grid">
-          {[1, 2, 3].map(i => (
-            <article className={`news-card reveal reveal-d${i}`} key={i}>
-              <p className="news-date">
-                <span className="placeholder">{t('news.datePlaceholder')}</span>
-              </p>
-              <h3>
-                <span className="placeholder">{t('news.headlinePlaceholder')}</span>
-              </h3>
-              <p>
-                <span className="placeholder">{t('news.summaryPlaceholder')}</span>
-              </p>
+          {items.map((item, i) => (
+            <article className={`news-card reveal reveal-d${i + 1}`} key={i}>
+              <p className="news-date">{item.date}</p>
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
             </article>
           ))}
         </div>

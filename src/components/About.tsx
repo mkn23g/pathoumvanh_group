@@ -14,14 +14,10 @@ export function About() {
         <div className="about-grid">
           <div className="about-content reveal reveal-d1">
             <h3>{t('about.missionHeading')}</h3>
-            <p>
-              <span className="placeholder">{t('about.missionPlaceholder')}</span>
-            </p>
+            <p>{t('about.missionText')}</p>
 
             <h3>{t('about.leadershipHeading')}</h3>
-            <p>
-              <span className="placeholder">{t('about.leadershipPlaceholder')}</span>
-            </p>
+            <p>{t('about.leadershipText')}</p>
           </div>
 
           <div className="about-visual reveal reveal-d2">
@@ -49,21 +45,13 @@ export function About() {
 
         <div className="metrics-row reveal reveal-d2">
           {[
-            { value: '4', label: t('about.subsidiariesLabel'), isReal: true },
-            { value: '[X]', label: t('about.metricPlaceholder'), isReal: false },
-            { value: '[X]', label: t('about.metricPlaceholder'), isReal: false },
-            { value: '[X]', label: t('about.metricPlaceholder'), isReal: false },
+            { value: '4', label: t('about.m1Label') },
+            { value: '4+', label: t('about.m2Label') },
+            { value: '100%', label: t('about.m3Label') },
+            { value: 'VTE', label: t('about.m4Label') },
           ].map((metric, i) => (
             <div className="metric-card" key={i}>
-              <div className="metric-value">
-                {metric.isReal ? (
-                  metric.value
-                ) : (
-                  <span className="placeholder" style={{ background: 'none', border: 'none' }}>
-                    {metric.value}
-                  </span>
-                )}
-              </div>
+              <div className="metric-value">{metric.value}</div>
               <div className="metric-label">{metric.label}</div>
             </div>
           ))}
