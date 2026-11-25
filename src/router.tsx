@@ -12,10 +12,13 @@ import { useScrollReveal, useSmoothScroll } from './hooks'
 /* ----------------------------------------------------------------
    Root Layout — wraps every route with header + footer
    ---------------------------------------------------------------- */
+import { useTranslation } from 'react-i18next'
+
 function RootLayout() {
+  const { t } = useTranslation()
   return (
     <>
-      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <a href="#main-content" className="skip-link">{t('skip')}</a>
       <Header />
       <main id="main-content">
         <Outlet />
